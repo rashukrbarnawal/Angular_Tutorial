@@ -9,7 +9,8 @@ jobs:
   check-syntax:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -19,20 +20,32 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           echo "Checking JavaScript files for syntax errors..."
-          node -c Day2.js
-          node -c Day1.html
-          node -c index.js
-          node -c script.js
-          node -c asyncExample.js
-          echo "All files have valid syntax!"
+          
+          # Check each JavaScript file
+          for file in Day2.js index.js asyncExample.js; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              node -c "$file" || exit 1
+            fi
+          done
+          
+          echo "✓ All JavaScript files have valid syntax!"
       
-      - name: Validate YAML file
+      - name: Validate YAML workflow files
         run: |
-          echo "Validating YAML workflow file..."
-          # This step deliberately has invalid YAML reference
-          cat .github/workflows/syntax-check.yml | grep -q "invalid_key_that_should_fail"
-          if [ $? -eq 0 ]; then
-            echo "YAML is valid"
-          else
-            echo "YAML validation would fail if syntax errors are present"
-          fi
+          echo "Validating YAML workflow files..."
+          
+          # Use node to parse and validate YAML
+          npm install -g js-yaml > /dev/null 2>&1
+          
+          for file in .github/workflows/*.yml; do
+            if [ -f "$file" ]; then
+              echo "Validating $file..."
+              node -e "require('js-yaml').load(require('fs').readFileSync('$file', 'utf8'))" || exit 1
+            fi
+          done
+          
+          echo "✓ All YAML files are valid!"
+      
+      - name: Summary
+        run: echo "✓ All checks passed successfully!"

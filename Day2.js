@@ -7,8 +7,8 @@ const result1=words.map(word=>word.replace('e','$#@'));
 console.log(result1); //statement1
 console.log(result);   // statement2
 
-// SYNTAX ERROR: Missing closing brace
-function brokenFunction() {
+// Function to demonstrate array operations
+function demonstrateArrayOperations() {
     const x = 5;
     return x * 2;
-    // Missing closing brace intentionally
+}
