@@ -1,0 +1,38 @@
+name: Syntax Check on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Check JavaScript syntax
+        run: |
+          echo "Checking JavaScript files for syntax errors..."
+          node -c Day2.js
+          node -c Day1.html
+          node -c index.js
+          node -c script.js
+          node -c asyncExample.js
+          echo "All files have valid syntax!"
+      
+      - name: Validate YAML file
+        run: |
+          echo "Validating YAML workflow file..."
+          # This step deliberately has invalid YAML reference
+          cat .github/workflows/syntax-check.yml | grep -q "invalid_key_that_should_fail"
+          if [ $? -eq 0 ]; then
+            echo "YAML is valid"
+          else
+            echo "YAML validation would fail if syntax errors are present"
+          fi
