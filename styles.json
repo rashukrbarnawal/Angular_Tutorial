@@ -1,0 +1,579 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "CSS Topology Documentation for Angular Tutorial Project",
+    "sourceFile": "style.css",
+    "lastUpdated": "2024",
+    "purpose": "Defines the complete CSS topology including selectors, properties, cascade rules, and component dependencies"
+  },
+  "cssTopology": {
+    "globalStyles": {
+      "body": {
+        "selector": "body",
+        "type": "element",
+        "specificity": 1,
+        "properties": {
+          "background": {
+            "value": "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+            "category": "color",
+            "description": "Dark blue gradient background for entire page"
+          },
+          "font-family": {
+            "value": "'Poppins', sans-serif",
+            "category": "typography",
+            "description": "Primary font family for body content"
+          }
+        },
+        "cascade": {
+          "inheritsTo": ["#form", "button", ".input-control"],
+          "priority": "high"
+        },
+        "dependencies": []
+      }
+    },
+    "components": {
+      "button": {
+        "selector": "button",
+        "type": "element",
+        "specificity": 1,
+        "description": "Global button styling",
+        "properties": {
+          "font-family": {
+            "value": "'helvetica neue', helvetica, sans-serif",
+            "category": "typography",
+            "description": "Font family override for buttons"
+          },
+          "letter-spacing": {
+            "value": "1px",
+            "category": "typography",
+            "description": "Increased letter spacing for emphasis"
+          },
+          "text-transform": {
+            "value": "uppercase",
+            "category": "typography",
+            "description": "All button text in uppercase"
+          },
+          "text-align": {
+            "value": "center",
+            "category": "layout",
+            "description": "Center-align button text"
+          },
+          "border": {
+            "value": "2px solid rgb(255, 232, 28)",
+            "category": "border",
+            "description": "Bright yellow border"
+          },
+          "background": {
+            "value": "rgb(255, 232, 28)",
+            "category": "color",
+            "description": "Bright yellow background"
+          },
+          "color": {
+            "value": "rgba(0,0,200,0.6)",
+            "category": "color",
+            "description": "Semi-transparent blue text"
+          },
+          "box-shadow": {
+            "value": "1px 1px 2px rgba(0,0,200,0.4)",
+            "category": "effect",
+            "description": "Subtle blue shadow for depth"
+          },
+          "border-radius": {
+            "value": "10px",
+            "category": "border",
+            "description": "Rounded corners"
+          },
+          "padding": {
+            "value": "3px 10px",
+            "category": "spacing",
+            "description": "Vertical and horizontal padding"
+          },
+          "display": {
+            "value": "inline-block",
+            "category": "layout",
+            "description": "Inline positioning with block properties"
+          },
+          "cursor": {
+            "value": "pointer",
+            "category": "interaction",
+            "description": "Pointer cursor on hover"
+          }
+        },
+        "cascade": {
+          "isGlobal": true,
+          "overriddenBy": ["#form button"],
+          "priority": "base"
+        },
+        "dependencies": []
+      },
+      "formContainer": {
+        "selector": "#form",
+        "type": "id",
+        "specificity": 100,
+        "description": "Main form container styling",
+        "properties": {
+          "width": {
+            "value": "300px",
+            "category": "layout",
+            "description": "Fixed form width"
+          },
+          "margin": {
+            "value": "20vh auto 0 auto",
+            "category": "spacing",
+            "description": "Vertical centering (20vh from top) with horizontal centering"
+          },
+          "padding": {
+            "value": "20px",
+            "category": "spacing",
+            "description": "Internal spacing"
+          },
+          "background-color": {
+            "value": "whitesmoke",
+            "category": "color",
+            "description": "Light gray background"
+          },
+          "border-radius": {
+            "value": "4px",
+            "category": "border",
+            "description": "Subtle rounded corners"
+          },
+          "font-size": {
+            "value": "12px",
+            "category": "typography",
+            "description": "Compact font size for form content"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": ["body"],
+          "overrides": ["body"],
+          "priority": "high"
+        },
+        "children": ["#form h1", "#form button", ".input-control"],
+        "dependencies": []
+      },
+      "formHeading": {
+        "selector": "#form h1",
+        "type": "descendant",
+        "specificity": 101,
+        "description": "Form heading within form container",
+        "properties": {
+          "color": {
+            "value": "#0f2027",
+            "category": "color",
+            "description": "Dark blue color matching gradient"
+          },
+          "text-align": {
+            "value": "center",
+            "category": "layout",
+            "description": "Center-aligned heading"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": ["#form"],
+          "priority": "medium"
+        },
+        "parent": "#form",
+        "dependencies": []
+      },
+      "formButton": {
+        "selector": "#form button",
+        "type": "descendant",
+        "specificity": 101,
+        "description": "Override styling for buttons within form",
+        "properties": {
+          "padding": {
+            "value": "10px",
+            "category": "spacing",
+            "description": "Override: larger padding for form button",
+            "overrides": ["button.padding"]
+          },
+          "margin-top": {
+            "value": "10px",
+            "category": "spacing",
+            "description": "Space above button"
+          },
+          "width": {
+            "value": "100%",
+            "category": "layout",
+            "description": "Full width button"
+          },
+          "color": {
+            "value": "white",
+            "category": "color",
+            "description": "Override: white text",
+            "overrides": ["button.color"]
+          },
+          "background-color": {
+            "value": "rgb(41, 57, 194)",
+            "category": "color",
+            "description": "Override: blue background",
+            "overrides": ["button.background"]
+          },
+          "border": {
+            "value": "none",
+            "category": "border",
+            "description": "Override: remove border",
+            "overrides": ["button.border"]
+          },
+          "border-radius": {
+            "value": "4px",
+            "category": "border",
+            "description": "Subtle rounded corners"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": ["button", "#form"],
+          "overrides": ["button"],
+          "priority": "high"
+        },
+        "parent": "#form",
+        "dependencies": ["button"]
+      },
+      "inputControl": {
+        "selector": ".input-control",
+        "type": "class",
+        "specificity": 10,
+        "description": "Wrapper for input fields with label",
+        "properties": {
+          "display": {
+            "value": "flex",
+            "category": "layout",
+            "description": "Flexbox layout"
+          },
+          "flex-direction": {
+            "value": "column",
+            "category": "layout",
+            "description": "Stack content vertically"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": ["#form"],
+          "priority": "medium"
+        },
+        "children": [".input-control input", ".input-control .error"],
+        "dependencies": []
+      },
+      "inputElement": {
+        "selector": ".input-control input",
+        "type": "descendant",
+        "specificity": 11,
+        "description": "Input field styling within control wrapper",
+        "properties": {
+          "border": {
+            "value": "2px solid #f0f0f0",
+            "category": "border",
+            "description": "Light gray border"
+          },
+          "border-radius": {
+            "value": "4px",
+            "category": "border",
+            "description": "Rounded corners"
+          },
+          "display": {
+            "value": "block",
+            "category": "layout",
+            "description": "Block-level element"
+          },
+          "font-size": {
+            "value": "12px",
+            "category": "typography",
+            "description": "Compact font size"
+          },
+          "padding": {
+            "value": "10px",
+            "category": "spacing",
+            "description": "Internal padding"
+          },
+          "width": {
+            "value": "100%",
+            "category": "layout",
+            "description": "Full width of container"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": [".input-control", "#form"],
+          "priority": "medium"
+        },
+        "parent": ".input-control",
+        "pseudoClasses": {
+          ":focus": {
+            "properties": {
+              "outline": {
+                "value": "0",
+                "category": "interaction",
+                "description": "Remove default focus outline"
+              }
+            }
+          }
+        },
+        "dependencies": []
+      },
+      "inputSuccess": {
+        "selector": ".input-control.success input",
+        "type": "compound",
+        "specificity": 21,
+        "description": "Input styling when validation is successful",
+        "properties": {
+          "border-color": {
+            "value": "#09c372",
+            "category": "color",
+            "description": "Green border for success state",
+            "overrides": [".input-control input.border"]
+          }
+        },
+        "cascade": {
+          "inheritsFrom": [".input-control input"],
+          "overrides": [".input-control input"],
+          "priority": "high",
+          "triggerCondition": "success class on parent"
+        },
+        "dependencies": [".input-control input"],
+        "state": "success"
+      },
+      "inputError": {
+        "selector": ".input-control.error input",
+        "type": "compound",
+        "specificity": 21,
+        "description": "Input styling when validation has error",
+        "properties": {
+          "border-color": {
+            "value": "#ff3860",
+            "category": "color",
+            "description": "Red border for error state",
+            "overrides": [".input-control input.border"]
+          }
+        },
+        "cascade": {
+          "inheritsFrom": [".input-control input"],
+          "overrides": [".input-control input"],
+          "priority": "high",
+          "triggerCondition": "error class on parent"
+        },
+        "dependencies": [".input-control input"],
+        "state": "error"
+      },
+      "errorMessage": {
+        "selector": ".input-control .error",
+        "type": "descendant",
+        "specificity": 11,
+        "description": "Error message text styling",
+        "properties": {
+          "color": {
+            "value": "#ff3860",
+            "category": "color",
+            "description": "Red text for errors"
+          },
+          "font-size": {
+            "value": "9px",
+            "category": "typography",
+            "description": "Small font size for error messages"
+          },
+          "height": {
+            "value": "13px",
+            "category": "layout",
+            "description": "Fixed height to prevent layout shift"
+          }
+        },
+        "cascade": {
+          "inheritsFrom": [".input-control", "#form"],
+          "priority": "medium"
+        },
+        "parent": ".input-control",
+        "dependencies": [".input-control"]
+      }
+    },
+    "colorPalette": {
+      "primary": {
+        "darkBlue": "#0f2027",
+        "usage": "Form heading, gradient start"
+      },
+      "secondary": {
+        "mediumBlue": "#203a43",
+        "usage": "Gradient middle"
+      },
+      "tertiary": {
+        "lightBlue": "#2c5364",
+        "usage": "Gradient end"
+      },
+      "accent": {
+        "brightYellow": "rgb(255, 232, 28)",
+        "usage": "Button border and background (global)"
+      },
+      "interactive": {
+        "blue": "rgba(0,0,200,0.6)",
+        "darkBlue": "rgb(41, 57, 194)",
+        "usage": "Button text, form button background"
+      },
+      "neutral": {
+        "whitesmoke": "whitesmoke",
+        "lightGray": "#f0f0f0",
+        "usage": "Form background, input borders"
+      },
+      "semantic": {
+        "success": "#09c372",
+        "error": "#ff3860",
+        "usage": "Input validation states"
+      }
+    },
+    "typography": {
+      "families": {
+        "primary": "'Poppins', sans-serif",
+        "secondary": "'helvetica neue', helvetica, sans-serif"
+      },
+      "sizes": {
+        "base": "12px",
+        "small": "9px"
+      },
+      "weights": {
+        "normal": 400
+      },
+      "spacing": {
+        "letterSpacing": "1px"
+      },
+      "transforms": {
+        "buttonText": "uppercase"
+      }
+    },
+    "spacing": {
+      "small": "3px",
+      "medium": "10px",
+      "large": "20px",
+      "xlarge": "20vh"
+    },
+    "borderRadius": {
+      "subtle": "4px",
+      "rounded": "10px"
+    },
+    "effects": {
+      "boxShadow": {
+        "button": "1px 1px 2px rgba(0,0,200,0.4)",
+        "description": "Subtle shadow with blue tint"
+      }
+    },
+    "cascadeRules": {
+      "inheritance": [
+        {
+          "parent": "body",
+          "children": ["button", "#form", ".input-control"],
+          "properties": ["font-family"]
+        },
+        {
+          "parent": "#form",
+          "children": ["#form h1", "#form button", ".input-control"],
+          "properties": ["font-size", "color"]
+        },
+        {
+          "parent": ".input-control",
+          "children": [".input-control input", ".input-control .error"],
+          "properties": ["display"]
+        }
+      ],
+      "specificity": {
+        "elementSelector": 1,
+        "classSelector": 10,
+        "idSelector": 100,
+        "descendantCombinator": "+1 to child",
+        "compoundSelector": "sum of all parts"
+      },
+      "cascadeOrder": [
+        "browser defaults",
+        "global element styles (button, body)",
+        "id selectors (#form, #form button)",
+        "class selectors (.input-control, .input-control input)",
+        "compound selectors (.input-control.success input)",
+        "pseudo-classes (:focus)"
+      ]
+    },
+    "layoutArchitecture": {
+      "viewport": {
+        "body": {
+          "layout": "block",
+          "background": "gradient",
+          "children": ["#form"]
+        }
+      },
+      "formContainer": {
+        "selector": "#form",
+        "layout": "block",
+        "positioning": "centered with margin",
+        "children": [
+          {
+            "selector": "#form h1",
+            "layout": "block",
+            "description": "Form title"
+          },
+          {
+            "selector": ".input-control",
+            "layout": "flex (column)",
+            "description": "Form field wrapper (repeating)",
+            "children": [
+              {
+                "selector": ".input-control input",
+                "layout": "block",
+                "description": "Input field"
+              },
+              {
+                "selector": ".input-control .error",
+                "layout": "block",
+                "description": "Error message (conditional)"
+              }
+            ]
+          },
+          {
+            "selector": "#form button",
+            "layout": "block",
+            "positioning": "full width",
+            "description": "Submit button"
+          }
+        ]
+      }
+    },
+    "dependencies": {
+      "componentDependencies": {
+        "formButton": {
+          "dependsOn": ["button", "#form"],
+          "relationship": "override cascade"
+        },
+        "inputSuccess": {
+          "dependsOn": [".input-control input"],
+          "relationship": "state-based override"
+        },
+        "inputError": {
+          "dependsOn": [".input-control input"],
+          "relationship": "state-based override"
+        },
+        "errorMessage": {
+          "dependsOn": [".input-control"],
+          "relationship": "child element"
+        }
+      },
+      "cssPropertyDependencies": {
+        "width100percent": {
+          "affects": ["#form button", ".input-control input"],
+          "category": "layout"
+        },
+        "flexbox": {
+          "affects": [".input-control"],
+          "category": "layout",
+          "children": [".input-control input", ".input-control .error"]
+        }
+      }
+    },
+    "responsiveConsiderations": {
+      "fixed": {
+        "formWidth": "300px",
+        "description": "Form may need adjustment for mobile screens"
+      },
+      "viewport": {
+        "marginTop": "20vh",
+        "description": "Percentage-based margin adapts to viewport height"
+      },
+      "recommendations": [
+        "Add media queries for screens < 400px width",
+        "Consider adjusting form width and padding for mobile",
+        "Review button sizes for touch targets (44px minimum)",
+        "Test gradient appearance on various devices"
+      ]
+    }
+  }
+}
