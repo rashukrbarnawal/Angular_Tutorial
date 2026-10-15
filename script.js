@@ -15,16 +15,21 @@ incrementFunction()
 
 
 
-
-
-
-
-
-
+// Intentional syntax errors for CI failure
 a=10
 
 var a;
 a=10
 b="10"
+
+// Missing closing bracket and parenthesis
+const obj = {
+  method: function() {
+    return "value"
+  // Missing closing brace
+;
+
+// Invalid variable reference
+console.log(undefinedVar)
 
 a===b
