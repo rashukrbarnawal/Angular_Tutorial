@@ -69,7 +69,7 @@ jobs:
           echo ""
           echo "✅ Lint checks complete"
 
-  test:
+  test
     name: Run Tests
     runs-on: ubuntu-latest
     
