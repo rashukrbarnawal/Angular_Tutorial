@@ -1,0 +1,48 @@
+# This YAML file contains intentional syntax errors
+# Error 1: Incorrect indentation (mixing spaces inconsistently)
+application:
+  name: MyApp
+   version: 1.0.0
+  description: This has bad indentation
+
+# Error 2: Missing colon after key
+database
+  host: localhost
+  port: 5432
+
+# Error 3: Invalid key-value pair structure
+settings:
+  timeout 30
+  retries: 5
+
+# Error 4: Malformed list with inconsistent indentation
+servers:
+ - name: server1
+   ip: 192.168.1.1
+  - name: server2
+    ip: 192.168.1.2
+
+# Error 5: Tab character used instead of spaces (YAML doesn't allow tabs)
+config:
+	key: value
+	another_key: another_value
+
+# Error 6: Unclosed quote
+message: "This is an unclosed string
+  more_text: value
+
+# Error 7: Invalid anchor/alias syntax
+defaults: &invalid_anchor
+  timeout: 30
+  retry: *undefined_alias
+
+# Error 8: Duplicate keys at same level
+metadata:
+  author: John
+  author: Jane
+
+# Error 9: Invalid nested structure with wrong indentation
+nested:
+ data:
+  value: 123
+   extra: wrong
