@@ -35,8 +35,8 @@ jobs:
         run: |
           echo "Validating YAML workflow files..."
           
-          # Use node to parse and validate YAML
-          npm install -g js-yaml > /dev/null 2>&1
+          # Install js-yaml locally so Node can find it
+          npm install js-yaml --no-save > /dev/null 2>&1
           
           for file in .github/workflows/*.yml; do
             if [ -f "$file" ]; then
