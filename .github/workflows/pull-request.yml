@@ -99,7 +99,7 @@ jobs:
             echo "✅ PR size is reasonable"
           fi
 
-  comment-pr:
+  comment-pr
     name: Add PR Comment with Status
     runs-on: ubuntu-latest
     needs: [pr-validation, file-changes, size-check]
