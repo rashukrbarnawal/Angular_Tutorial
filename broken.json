@@ -1,0 +1,20 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "A broken JSON file",
+  "author": "test",
+  "config": {
+    "key1": "value1",
+    "key2": "value2"
+    "key3": "value3",
+  },
+  "dependencies": [
+    "package1",
+    "package2"
+    "package3"
+  ]
+  "scripts": {
+    "test": "jest",
+    "build": "ng build"
+  }
+}
