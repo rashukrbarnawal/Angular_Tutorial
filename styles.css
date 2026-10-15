@@ -10,7 +10,7 @@
      ======================================== */
   
   /* Primary Colors */
-  --color-primary: rgb(41, 57, 194);
+  --color-primary: rgb(41, 57, 194)
   --color-primary-light: rgba(41, 57, 194, 0.6);
   --color-primary-dark: #0f2027;
   
@@ -103,7 +103,7 @@
   --border-radius-lg: 8px;
   --border-radius-xl: 10px;
   --border-radius-2xl: 16px;
-  --border-radius-full: 9999px;
+  --border-radius-full: 9999px
   
   /* Border Widths */
   --border-width-thin: 1px;
@@ -154,7 +154,7 @@
      ======================================== */
   
   /* Button Styles */
-  --button-padding: 10px;
+  --button-padding: invalid-value;
   --button-border-radius: var(--border-radius-md);
   --button-font-size: var(--font-size-sm);
   
@@ -197,8 +197,7 @@
 
 /* Typography Utilities */
 .text-xs {
-  font-size: var(--font-size-xs);
-}
+  font-size: var(--font-size-xs)
 
 .text-sm {
   font-size: var(--font-size-sm);
