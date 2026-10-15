@@ -1,0 +1,84 @@
+# This YAML file contains SEVERE intentional syntax errors to ensure CI failure
+
+# ERROR 1: Invalid indentation - mixing spaces inconsistently
+application:
+  name: MyApp
+   version: 1.0.0
+  description: This has bad indentation
+
+# ERROR 2: Missing colon after key
+database
+  host: localhost
+  port: 5432
+
+# ERROR 3: Invalid key-value pair structure (missing colon)
+settings:
+  timeout 30
+  retries: 5
+
+# ERROR 4: Malformed list with inconsistent indentation
+servers:
+ - name: server1
+   ip: 192.168.1.1
+  - name: server2
+    ip: 192.168.1.2
+
+# ERROR 5: Tab character used instead of spaces (YAML doesn't allow tabs)
+config:
+	key: value
+	another_key: another_value
+
+# ERROR 6: Unclosed quote
+message: "This is an unclosed string
+  more_text: value
+
+# ERROR 7: Invalid anchor/alias syntax
+defaults: &invalid_anchor
+  timeout: 30
+  retry: *undefined_alias
+
+# ERROR 8: Duplicate keys at same level
+metadata:
+  author: John
+  author: Jane
+
+# ERROR 9: Invalid nested structure with wrong indentation
+nested:
+ data:
+  value: 123
+   extra: wrong
+
+# ERROR 10: Unclosed bracket
+array_test: [1, 2, 3
+
+# ERROR 11: Invalid colon placement
+invalid: : value
+
+# ERROR 12: Malformed key with special characters
+key@#$%: value
+
+# ERROR 13: Unmatched braces
+object_test: {key: value
+
+# ERROR 14: Invalid list syntax
+bad_list:
+- item1
+ - item2
+  - item3
+
+# ERROR 15: Colon without space in mapping
+mapping:key: value
+
+# ERROR 16: Multiple colons in value
+bad_value: key: value: extra
+
+# ERROR 17: Invalid YAML anchor reference
+reference: &anchor1
+  data: test
+wrong_ref: *anchor2
+
+# ERROR 18: Improper nesting with mixed indentation
+root:
+  level1:
+   level2: value
+    level3: wrong
