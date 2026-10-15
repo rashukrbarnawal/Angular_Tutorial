@@ -25,11 +25,21 @@ jobs:
       - name: Validate JavaScript files
         run: |
           echo "🔍 Validating JavaScript syntax..."
+          ERRORS=0
           for file in *.js; do
             if [ -f "$file" ]; then
-              node -c "$file" && echo "✅ $file is valid" || echo "❌ $file has syntax errors"
+              if node -c "$file" 2>&1; then
+                echo "✅ $file is valid"
+              else
+                echo "❌ $file has syntax errors"
+                ERRORS=$((ERRORS + 1))
+              fi
             fi
           done
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ Found $ERRORS file(s) with syntax errors!"
+            exit 1
+          fi
 
       - name: Check CSS files
         run: |
