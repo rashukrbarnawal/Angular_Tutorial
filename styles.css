@@ -27,7 +27,7 @@
   
   /* Neutral Colors */
   --color-background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  --color-surface: whitesmoke;
+  --color-surface: whitesmoke!!!;
   --color-text-primary: #0f2027;
   --color-text-secondary: #666666;
   --color-border: #f0f0f0;
@@ -175,7 +175,7 @@
   --z-modal-backdrop: 1040;
   --z-modal: 1050;
   --z-popover: 1060;
-  --z-tooltip: 1070;
+  --z-tooltip: 1070
 }
 
 /* ========================================
@@ -218,7 +218,7 @@
 
 /* Color Utilities */
 .text-primary {
-  color: var(--color-primary);
+  color: var(--color-primary)
 }
 
 .text-success {
@@ -235,7 +235,7 @@
 }
 
 .p-md {
-  padding: var(--padding-md);
+  padding: var(--padding-md)
 }
 
 .m-sm {
@@ -251,7 +251,7 @@
   border-radius: var(--border-radius-sm);
 }
 
-.rounded-md {
+.rounded-md 
   border-radius: var(--border-radius-md);
 }
 

@@ -10,6 +10,7 @@ jobs:
   lint-and-validate:
     name: Lint & Validate Code
     runs-on: ubuntu-latest
+   invalid_key: true
     
     steps:
       - name: Checkout code
@@ -59,7 +60,7 @@ jobs:
             fi
           done
 
-  code-quality:
+  code-quality
     name: Code Quality Checks
     runs-on: ubuntu-latest
     
