@@ -1,0 +1,273 @@
+/* ========================================
+   STYLE GUIDELINES - CSS Variables
+   Version: 1.0.0
+   Last Updated: 2024
+   ======================================== */
+
+:root {
+  /* ========================================
+     COLOR PALETTE
+     ======================================== */
+  
+  /* Primary Colors */
+  --color-primary: rgb(41, 57, 194);
+  --color-primary-light: rgba(41, 57, 194, 0.6);
+  --color-primary-dark: #0f2027;
+  
+  /* Secondary Colors */
+  --color-secondary: rgb(255, 232, 28);
+  --color-secondary-dark: #203a43;
+  --color-secondary-darker: #2c5364;
+  
+  /* Status Colors */
+  --color-success: #09c372;
+  --color-error: #ff3860;
+  --color-warning: #ffc107;
+  --color-info: #0066cc;
+  
+  /* Neutral Colors */
+  --color-background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  --color-surface: whitesmoke;
+  --color-text-primary: #0f2027;
+  --color-text-secondary: #666666;
+  --color-border: #f0f0f0;
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  
+  /* Font Families */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Helvetica Neue', helvetica, sans-serif;
+  --font-monospace: 'Monaco', 'Courier New', monospace;
+  
+  /* Font Sizes */
+  --font-size-xs: 9px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 1px;
+  
+  /* ========================================
+     SPACING
+     ======================================== */
+  
+  /* Base Unit: 4px */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+  
+  /* Padding Presets */
+  --padding-sm: 10px;
+  --padding-md: 20px;
+  --padding-lg: 30px;
+  
+  /* Margin Presets */
+  --margin-sm: 10px;
+  --margin-md: 20px;
+  --margin-lg: 30px;
+  
+  /* ========================================
+     BORDER & RADIUS
+     ======================================== */
+  
+  /* Border Radius */
+  --border-radius-none: 0;
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 10px;
+  --border-radius-2xl: 16px;
+  --border-radius-full: 9999px;
+  
+  /* Border Widths */
+  --border-width-thin: 1px;
+  --border-width-normal: 2px;
+  --border-width-thick: 3px;
+  
+  /* Border Colors */
+  --border-color-primary: var(--color-border);
+  --border-color-success: var(--color-success);
+  --border-color-error: var(--color-error);
+  
+  /* ========================================
+     SHADOWS
+     ======================================== */
+  
+  --shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+  /* ========================================
+     TRANSITIONS & ANIMATIONS
+     ======================================== */
+  
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  
+  /* Breakpoints */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  
+  /* Max Widths */
+  --max-width-sm: 300px;
+  --max-width-md: 600px;
+  --max-width-lg: 900px;
+  --max-width-xl: 1200px;
+  
+  /* ========================================
+     INTERACTIVE ELEMENTS
+     ======================================== */
+  
+  /* Button Styles */
+  --button-padding: 10px;
+  --button-border-radius: var(--border-radius-md);
+  --button-font-size: var(--font-size-sm);
+  
+  /* Input Styles */
+  --input-padding: 10px;
+  --input-border-radius: var(--border-radius-md);
+  --input-font-size: var(--font-size-sm);
+  --input-border-width: var(--border-width-normal);
+  --input-border-color: var(--color-border);
+  
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ========================================
+   DARK MODE VARIANT (Optional)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-surface: #1a1a1a;
+    --color-border: #333333;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Typography Utilities */
+.text-xs {
+  font-size: var(--font-size-xs);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+}
+
+.text-base {
+  font-size: var(--font-size-base);
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+}
+
+.text-xl {
+  font-size: var(--font-size-xl);
+}
+
+/* Color Utilities */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+/* Spacing Utilities */
+.p-sm {
+  padding: var(--padding-sm);
+}
+
+.p-md {
+  padding: var(--padding-md);
+}
+
+.m-sm {
+  margin: var(--margin-sm);
+}
+
+.m-md {
+  margin: var(--margin-md);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+  border-radius: var(--border-radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--border-radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-lg);
+}
+
+/* Shadow Utilities */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
