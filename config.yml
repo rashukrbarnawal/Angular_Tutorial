@@ -1,0 +1,233 @@
+# Angular_Tutorial Project Configuration
+# Project metadata, build settings, and CI/CD configuration
+
+project:
+  name: Angular_Tutorial
+  version: "1.0.0"
+  description: "A hands-on learning repository for front-end web development fundamentals including HTML, CSS, and JavaScript"
+  repository: "https://github.com/rashukrbarnawal/Angular_Tutorial"
+  author: "rashukrbarnawal"
+  license: "MIT"
+  tags:
+    - tutorial
+    - web-development
+    - html
+    - css
+    - javascript
+    - learning
+
+# Build configuration
+build:
+  type: "static"
+  outputDir: "."
+  sourceDir: "."
+  
+# File structure and requirements
+files:
+  required:
+    - name: "README.md"
+      description: "Project documentation"
+      validation: "exists"
+    
+    - name: "index.js"
+      description: "Main entry point"
+      validation: "syntax-check"
+    
+    - name: "style.css"
+      description: "Primary stylesheet"
+      validation: "exists"
+    
+    - name: "styles.css"
+      description: "CSS variables and utilities"
+      validation: "exists"
+  
+  patterns:
+    - pattern: "Day*.html"
+      description: "Day-based HTML tutorial files"
+      validation: "exists"
+    
+    - pattern: "Day*.js"
+      description: "Day-based JavaScript tutorial files"
+      validation: "syntax-check"
+    
+    - pattern: "*.js"
+      description: "All JavaScript files"
+      validation: "syntax-check"
+
+# Code quality rules
+quality:
+  javascript:
+    enabled: true
+    syntaxCheck: true
+    linter: "node -c"
+    rules:
+      - rule: "no-syntax-errors"
+        severity: "error"
+        description: "All JavaScript files must have valid syntax"
+      
+      - rule: "no-trailing-whitespace"
+        severity: "warning"
+        description: "Files should not have trailing whitespace"
+  
+  css:
+    enabled: true
+    rules:
+      - rule: "use-css-variables"
+        severity: "info"
+        description: "Use CSS variables from styles.css for consistency"
+  
+  html:
+    enabled: true
+    rules:
+      - rule: "proper-structure"
+        severity: "warning"
+        description: "HTML files should have proper structure"
+
+# CI/CD Configuration
+ci:
+  provider: "github-actions"
+  workflows:
+    - name: "ci"
+      file: ".github/workflows/ci.yml"
+      description: "Code quality and validation checks"
+      triggers:
+        - push
+        - pull_request
+    
+    - name: "build"
+      file: ".github/workflows/build.yml"
+      description: "Build verification and artifact counting"
+      triggers:
+        - push
+        - pull_request
+    
+    - name: "pull-request"
+      file: ".github/workflows/pull-request.yml"
+      description: "Pull request validation and size checks"
+      triggers:
+        - pull_request
+
+# Pull Request configuration
+pullRequest:
+  titleMinLength: 5
+  descriptionRequired: true
+  maxFilesWarning: 20
+  branches:
+    main: "main"
+    develop: "develop"
+    feature: "feature/**"
+
+# Development server configuration
+server:
+  types:
+    - name: "python"
+      command: "python -m http.server 8000"
+      url: "http://localhost:8000"
+    
+    - name: "node"
+      command: "npx serve ."
+      url: "http://localhost:5000"
+    
+    - name: "php"
+      command: "php -S localhost:8000"
+      url: "http://localhost:8000"
+
+# Tutorial structure
+tutorials:
+  days:
+    - day: 1
+      file: "Day1.html"
+      type: "html"
+      topic: "HTML Fundamentals"
+    
+    - day: 2
+      file: "Day2.js"
+      type: "javascript"
+      topic: "JavaScript Basics"
+  
+  examples:
+    - file: "asyncExample.js"
+      topic: "Asynchronous JavaScript"
+      description: "Async/await patterns and promises"
+    
+    - file: "form.html"
+      topic: "Form Handling"
+      description: "HTML form handling and validation"
+    
+    - file: "demo.html"
+      topic: "Interactive Demonstrations"
+      description: "Live examples and interactive content"
+
+# Project conventions
+conventions:
+  fileNaming:
+    tutorials: "Day{number}.{extension}"
+    extensions:
+      - html
+      - js
+  
+  branchNaming:
+    pattern: "{type}/{description}"
+    types:
+      - feature
+      - bugfix
+      - docs
+      - refactor
+  
+  commitMessage:
+    style: "conventional"
+    types:
+      - "feat"
+      - "fix"
+      - "docs"
+      - "style"
+      - "refactor"
+      - "test"
+      - "chore"
+
+# Dependencies
+dependencies:
+  runtime: []
+  development:
+    optional:
+      - name: "node"
+        version: ">=18.0.0"
+        reason: "JavaScript syntax validation"
+  
+  system:
+    required:
+      - name: "web-browser"
+        description: "Any modern browser for viewing HTML"
+
+# Repository branches
+branches:
+  main:
+    protected: true
+    description: "Production branch"
+    requiresReview: true
+    requiresChecks: true
+  
+  develop:
+    protected: false
+    description: "Integration branch"
+    requiresReview: false
+  
+  feature:
+    pattern: "feature/**"
+    description: "Feature branches"
+    requiresReview: true
+
+# Documentation
+documentation:
+  readme: "README.md"
+  pages:
+    - file: "README.md"
+      description: "Main project documentation"
+
+# Metadata
+metadata:
+  created: "2024"
+  updated: "2024"
+  maintainers:
+    - "rashukrbarnawal"
+  status: "active"
