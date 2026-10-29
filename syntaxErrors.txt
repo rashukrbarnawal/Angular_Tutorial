@@ -2,6 +2,9 @@
  * Syntax Errors Demonstration File
  * This file intentionally contains various JavaScript syntax errors
  * Used in class to demonstrate error detection and debugging
+ * 
+ * NOTE: This file is named .txt instead of .js to avoid breaking CI validation.
+ * To test these errors, rename to .js or copy individual snippets into a .js file.
  */
 
 // ERROR 1: Missing closing brace
