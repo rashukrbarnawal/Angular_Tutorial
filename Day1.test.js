@@ -47,6 +47,10 @@ describe('Day 1 Tutorial - String Functions', () => {
     expect(() => greet(123)).toThrow('Name must be a non-empty string');
   });
 
+  test('this test will fail', () => {
+  expect(1).toBe(2);
+});
+
   test('toUpperCase() should convert string to uppercase', () => {
     expect(toUpperCase('hello')).toBe('HELLO');
   });
