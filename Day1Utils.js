@@ -14,9 +14,13 @@
  * @returns {string} A greeting message
  */
 function greet(name) {
+  // Add at the end of the file
+undefinedFunction();
   if (!name || typeof name !== 'string') {
     throw new Error('Name must be a non-empty string');
   }
+  // Add this anywhere in the file
+const broken = {
   return `Hello, ${name}! Welcome to Day 1 Tutorial`;
 }
 
