@@ -1,0 +1,23 @@
+{
+  "name": "angular-tutorial",
+  "version": "1.0.0",
+  "description": "Educational repository containing vanilla HTML/CSS/JavaScript tutorials with Jest unit tests for classroom instruction",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "javascript",
+    "tutorial",
+    "education",
+    "jest",
+    "testing"
+  ],
+  "author": "rashukrbarnawal",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
